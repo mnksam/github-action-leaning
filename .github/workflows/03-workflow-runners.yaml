@@ -6,9 +6,9 @@ jobs:
         steps:
             - name: Show OS info
               run: |
-              echo "This job is running on an Ubuntu runner."
-              echo "Runner OS: $(uname -a)"
-              echo "Runner Version: $RUNNER_VERSION"
+                echo "This job is running on an Ubuntu runner."
+                echo "Runner OS: $(uname -a)"
+                echo "Runner Version: $RUNNER_VERSION"
     job2:
         runs-on: windows-latest
         steps:
