@@ -1,7 +1,7 @@
 name: 02 -Workflow Events
 on: 
     # push:
-    pull_request:
+    # pull_request:
     workflow_dispatch:
     # schedule:
     #    - cron: '*/4 * * * *'  # Runs daily at 14:39 IST (IST is UTC+5:30; 14:40 IST = 09:10 UTC, but GitHub Actions cron only supports minute precision, so use 09:10 UTC for 14:40 IST)
