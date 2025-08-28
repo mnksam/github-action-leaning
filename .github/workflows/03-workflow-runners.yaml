@@ -22,7 +22,6 @@ jobs:
             - name: Show OS info
               run: |
                 echo "This job is running on a macOS runner."
-                sw_version
                 echo "macOS Version: $(sw_vers -productVersion)"
                 echo "macOS Build: $(sw_vers -buildVersion)"
     job4:
