@@ -1,0 +1,34 @@
+name: 03 - Workflow Runners
+on: push
+jobs:
+    job1:
+        runs-on: ubuntu-latets
+        steps:
+            - name: Show OS info
+              run: |
+              echo "This job is running on an Ubuntu runner."
+              echo "Runner OS: $(uname -a)"
+              echo "Runner Version: $RUNNER_VERSION"
+    job2:
+        runs-on: windows-latest
+        steps:
+            - name: Show OS info
+              run: |
+                echo "This job is running on a Windows runner."
+                systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+    job3:
+        runs-on: macos-latest
+        steps:
+            - name: Show OS info
+              run: |
+                echo "This job is running on a macOS runner."
+                sw_version
+                echo "macOS Version: $(sw_vers -productVersion)"
+                echo "macOS Build: $(sw_vers -buildVersion)"
+    job4:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show OS
+              run: |
+                echo "This job is running on an Ubuntu runner."
+                echo "Runner OS: $RUNNER_OS"
