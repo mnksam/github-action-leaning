@@ -1,0 +1,31 @@
+name: 08 - Using Variables
+on:
+    push:
+    workflow_dispatch:
+env:
+    test1: 'I AM TEST1'
+    test2: 'I AM TEST2 WorkFlow'
+jobs:
+    job-1:
+        runs-on: ubuntu-latest
+        env:
+            job_var: 'I AM JOB_VAR'
+            test2: 'i AM TEST2 JOB'
+        steps:
+            - name: Retrieve Variables
+              env:
+                STEP_VAR: 'I AM STEP_VAR'
+                STEP_VAR2: 'i AM STEP_VAR2'
+                test2: 'I AM TEST2 STEPS'
+              run: |
+                echo "STEP VARIABLE value: ${{ vars.STEP_VAR }}"
+                echo "STEP VARIABLE2 value: STEP_VAR2 "
+                echo "test1 is : ${{ env.test1 }}"
+                echo "test2 is : ${{ env.test2 }}"
+                echo "job_var is : ${{ env.job_var }}"
+            - name: Override env variable
+              run: |
+                echo "Step 2 - test1 is : ${{ env.test2 }}"
+
+
+    
