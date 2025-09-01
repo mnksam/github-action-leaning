@@ -1,0 +1,22 @@
+name: 09 -Using Functions
+on: pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+jobs:
+  job-1:
+    runs:on: ubuntu-latest
+    steps:
+        - name: Failing Step
+          run: exit 1
+        - name: I will be skipped
+          if: ${{ success() }}
+          run: echo "This will be skipped if the previous step fails"
+        - name: I will execute
+          if: ${{ failure() }}
+          run: echo "This will run if any previous step fails"
+        - name: I will execure
+          if: ${{ !cancelled() }}
+          run: echo "This will run if the workflow is not cancelled"
+        - name: I will execure on cancelled
+          if: ${{ cancelled()}}
+          run: echo "I will print if the workflow has been cancelled."
