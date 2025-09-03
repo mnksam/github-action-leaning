@@ -7,7 +7,7 @@ env:
     test2: 'I AM TEST2 WorkFlow'
 jobs:
     job-1:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         env:
             job_var: 'I AM JOB_VAR'
             test2: 'i AM TEST2 JOB'
