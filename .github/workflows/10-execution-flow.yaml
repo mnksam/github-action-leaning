@@ -29,7 +29,13 @@ jobs:
     job-4:
         runs-on: ubuntu-latest
         needs: job-3
+        steps:
+            - name: Deploying to Production
+              run: echo "Deploying to Production Environment"
 
     job-5:
         runs-on: ubuntu-latest
         needs: [job-1, job-2, job-3, job-4]
+        steps:
+            - name: Final Notification
+              run: echo "All jobs completed successfully!"
